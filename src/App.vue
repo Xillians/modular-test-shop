@@ -1,6 +1,11 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <header class="topbar" id="topbar">
+    <img
+      src="https://design.swedbankpay.com/v/10.1.0/img/logo/swedbankpay-logo-h.svg"
+      alt="Swedbank Pay horizontal logo"
+      class="logotype-horizontal logotype-lg"
+    />
+  </header>
 </template>
 
 <script lang="ts">
