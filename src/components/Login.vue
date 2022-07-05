@@ -21,6 +21,7 @@
       />
       <!-- Submit button -->
       <button
+        id="log-in-button"
         class="btn btn-primary align-self-center"
         v-on:click="submit_login()"
       >
