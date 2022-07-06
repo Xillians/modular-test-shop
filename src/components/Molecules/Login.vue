@@ -49,6 +49,7 @@ export default defineComponent({
 
       if (this.email && this.password) {
         this.loggedIn = true;
+        this.$emit("onUserLoggedIn", this.loggedIn);
       }
     },
   },
