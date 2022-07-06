@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-const class_template = "payment-icon payment-icon-";
+const class_template = "payment-icon payment-icon-huge payment-icon-";
 export default defineComponent({
   name: "Sidebar-Instruments",
   props: ["loggedIn"],
