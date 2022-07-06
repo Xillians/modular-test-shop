@@ -6,7 +6,7 @@
       :type="type"
       class="form-control"
       v-model="value"
-      id="{{name}}"
+      :id="name"
       :placeholder="placeholder"
     />
   </div>

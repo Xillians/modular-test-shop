@@ -2,7 +2,6 @@
   <div id="login-component" v-if="!loggedIn">
     <h1>page title</h1>
     <div id="login-form" class="d-flex flex-column">
-      <!-- Input: E mail -->
       <input-field
         class="align-self-center"
         :type="'text'"
@@ -19,7 +18,6 @@
         :placeholder="'********'"
         @onPasswordUpdated="password = $event"
       />
-      <!-- Submit button -->
       <button
         id="log-in-button"
         class="btn btn-primary align-self-center"
@@ -33,7 +31,7 @@
 <!-- filename: Authentication.vue -->
 <script lang="ts">
 import { defineComponent } from "vue";
-import InputField from "./Atoms/inputs/inputField.vue";
+import InputField from "../Atoms/inputs/inputField.vue";
 
 export default defineComponent({
   name: "Login",
@@ -47,6 +45,8 @@ export default defineComponent({
   },
   methods: {
     submit_login() {
+      console.log("user logged in with", `${this.email} ${this.password}`);
+
       if (this.email && this.password) {
         this.loggedIn = true;
       }

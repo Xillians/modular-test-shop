@@ -1,6 +1,5 @@
 module.exports = {
   root: true,
-  lintOnSave: true,
   env: {
     node: true,
   },

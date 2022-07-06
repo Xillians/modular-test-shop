@@ -1,5 +1,5 @@
 <template>
-  <header class="topbar" id="topbar">
+  <header class="topbar topbar-xl-wide topbar-sticky" id="topbar">
     <img
       src="https://design.swedbankpay.com/v/10.1.0/img/logo/swedbankpay-logo-h.svg"
       alt="Swedbank Pay horizontal logo"
@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import Login from "./components/Login.vue";
+import Login from "./components/Molecules/Login.vue";
 
 @Options({
   components: {
