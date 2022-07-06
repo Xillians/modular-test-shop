@@ -6,16 +6,24 @@
       class="logotype-horizontal logotype-lg"
     />
   </header>
-  <Login />
+  <Login @onUserLoggedIn="userLoggedIn = $event" />
+  <instruments :loggedIn="userLoggedIn" />
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import Login from "./components/Molecules/Login.vue";
+import Instruments from "./components/Molecules/Instruments.vue";
 
 @Options({
   components: {
     Login,
+    Instruments,
+  },
+  data() {
+    return {
+      userLoggedIn: false,
+    };
   },
 })
 export default class App extends Vue {}
