@@ -19,9 +19,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 const class_template = "payment-icon payment-icon-huge payment-icon-";
+const dg = require("@swedbankpay/design-guide");
+
 export default defineComponent({
   name: "Sidebar-Instruments",
-  props: ["loggedIn"],
   data() {
     return {
       payment_li_class_list: [
@@ -33,5 +34,11 @@ export default defineComponent({
       ],
     };
   },
+  mounted() {
+    dg.sidebar.init("dg-sidebar");
+    console.log("sidebar mounted");
+  },
 });
 </script>
+
+<style scoped></style>
