@@ -1,27 +1,16 @@
 <template>
   <li class="main-nav-li">
     <a href="#">
-      <i class="material-icons-outlined" aria-hidden="true"
-        >play_circle_outline</i
-      >
-      Get started
+      <i :id="'payment-option-'+id" :class="img_source" aria-hidden="true" />
     </a>
     <nav class="sidebar-secondary-nav">
-      <header class="secondary-nav-header">Get started</header>
+      <header :id="'header-'+id" class="secondary-nav-header">{{id}}</header>
       <ul class="secondary-nav-ul">
-        <li class="secondary-nav-li group">
-          <a href="#">Second level (li.group)</a>
-          <ul aria-expanded="true">
-            <li class="nav-leaf">
-              <a href="#">li.nav-leaf</a>
-            </li>
-            <li class="nav-leaf">
-              <a href="#">li.nav-leaf</a>
-            </li>
-            <li class="nav-leaf">
-              <a href="#">li.nav-leaf</a>
-            </li>
-          </ul>
+        <li 
+              v-for="(flow, idx) in flows"
+              :key="idx"
+              class="secondary-nav-li group">
+          <a :id="id+' '+flow" href="#">{{flow}}</a>
         </li>
       </ul>
     </nav>
@@ -30,14 +19,23 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-const class_template = "payment-icon payment-icon-huge payment-icon-";
-const dg = require("@swedbankpay/design-guide");
 
 export default defineComponent({
   name: "Sidebar-Nav-Element",
   mounted() {
     console.log("nav element mounted");
   },
+  data() {
+    return {
+      flows: [
+        "recur",
+        "reverse",
+        "cancel",
+        "capture"
+      ]
+    }
+  },
+  props: ["id", "img_source"],
 });
 </script>
 
