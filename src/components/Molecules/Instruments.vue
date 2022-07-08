@@ -1,16 +1,22 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div id="dg-sidebar" class="sidebar">
+      <div id="instrument-sidebar" class="sidebar">
         <nav class="sidebar-main-nav">
-          <ul class="main-nav-ul">
+          <ul id="sidebar-element-list" class="main-nav-ul">
             <li class="main-nav-li active">
-              <a href="#">
-                <i class="material-icons-outlined" aria-hidden="true">home</i>
+              <a id="home-button" href="#">
+                <i id="home-page-button" class="material-icons-outlined" aria-hidden="true">home</i>
                 Home Page
               </a>
             </li>
-            <sidebar-nav-element/>
+            <li
+              v-for="(instrument) in payment_li_class_list"
+              :key="instrument.name"
+              class="main-nav-li"
+            >
+              <sidebar-nav-element :id="instrument.name" :img_source="instrument.image" />
+            </li>
           </ul>
         </nav>
       </div>
@@ -21,28 +27,43 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import SidebarNavElement from '../Atoms/SidebarNavElement.vue';
+import SidebarNavElement from "../Atoms/SidebarNavElement.vue";
 const class_template = "payment-icon payment-icon-huge payment-icon-";
 const dg = require("@swedbankpay/design-guide");
 
 export default defineComponent({
   name: "Sidebar-Instruments",
   components: {
-    SidebarNavElement
+    SidebarNavElement,
   },
   data() {
     return {
       payment_li_class_list: [
-        `${class_template}vipps`,
-        `${class_template}swish`,
-        `${class_template}mobilepay`,
-        `${class_template}trustly`,
-        `${class_template}applepay`,
+        {
+          name: "Vipps",
+          image: `${class_template}vipps` 
+        },
+        {
+          name: "Swish",
+          image: `${class_template}swish`  
+        },
+        {
+          name: "Mobile Pay",
+          image: `${class_template}mobilepay` 
+        },
+        {
+          name: "trustly",
+          image: `${class_template}trustly` 
+        },
+        {
+          name: "applePay",
+          image: `${class_template}applepay` 
+        },
       ],
     };
   },
   mounted() {
-    dg.sidebar.init("dg-sidebar");
+    dg.sidebar.init("instrument-sidebar");
     console.log("sidebar mounted");
   },
 });
