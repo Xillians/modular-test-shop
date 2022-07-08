@@ -7,7 +7,7 @@
     />
   </header>
   <Login @onUserLoggedIn="userLoggedIn = $event" />
-  <instruments :loggedIn="userLoggedIn" />
+  <instruments v-if="userLoggedIn" />
 </template>
 
 <script lang="ts">
